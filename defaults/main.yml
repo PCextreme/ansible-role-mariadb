@@ -1,0 +1,3 @@
+---
+mysql_conf_tpl: change_me
+mysql_conf_file: settings.cnf
