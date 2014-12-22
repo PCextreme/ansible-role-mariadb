@@ -19,6 +19,12 @@ None
 
 ## Role Variables
 
+MariaDB version:
+
+```
+mariadb_version: 10.0
+```
+
 Configuration template:
 
 ```

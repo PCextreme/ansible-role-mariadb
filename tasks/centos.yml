@@ -1,6 +1,6 @@
 ---
 - name: Add repo file
-  copy: src=mariadb_centos{{ ansible_distribution_major_version|int }}.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root mode=0644
+  template: src=mariadb_centos.repo.j2 dest=/etc/yum.repos.d/mariadb.repo owner=root group=root mode=0644
 
 - name: Install MariaDB
   yum: enablerepo=mariadb state=present name={{ item }}

@@ -1,6 +1,6 @@
 ---
 - name: Add APT repo file
-  copy: src=mariadb_trusty.list dest=/etc/apt/sources.list.d/mariadb.list owner=root group=root mode=0644
+  template: src=mariadb_ubuntu.list.j2 dest=/etc/apt/sources.list.d/mariadb.list owner=root group=root mode=0644
   register: mariadb_list
 
 - name: Add APT repo key
@@ -14,12 +14,6 @@
 - name: Unattended package installation
   shell: export DEBIAN_FRONTEND=noninteractive
   changed_when: false
-
-#- name: Set MySQL root password
-#  shell: "debconf-set-selections <<< 'mariadb-server mysql-server/root_password password {{ mysql_root_password }}'"
-
-#- name: Set MySQL root password again
-#  shell: "debconf-set-selections <<< 'mariadb-server mysql-server/root_password_again password {{ mysql_root_password }}'"
 
 - name: Install MariaDB
   apt: state=present pkg={{ item }}
