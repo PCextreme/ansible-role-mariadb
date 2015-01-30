@@ -37,6 +37,20 @@ Configuration filename:
 mysql_conf_file: settings.cnf
 ```
 
+### Experimental unattended mysql_secure_installation
+
+Set local environment variable:
+
+```
+export MYSQL_ROOT_PASSWORD="your_very_secret_password"
+```
+
+MySQL secure installation:
+
+```
+mysql_secure_installation: false
+```
+
 ## Dependencies
 
 None
