@@ -2,7 +2,3 @@
 mysql_conf_dir:
   "CentOS": /etc/my.cnf.d
   "Ubuntu": /etc/mysql/conf.d
-
-mysql_se_remove_anonymous_users: DELETE FROM mysql.user WHERE User='';
-mysql_se_disallow_root_login_remotely: DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-mysql_se_flush_privileges: FLUSH PRIVILEGES;

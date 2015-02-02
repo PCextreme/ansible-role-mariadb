@@ -39,16 +39,8 @@ mysql_conf_file: settings.cnf
 
 ### Experimental unattended mysql_secure_installation
 
-Set local environment variable:
-
 ```
-export MYSQL_ROOT_PASSWORD="your_very_secret_password"
-```
-
-MySQL secure installation:
-
-```
-mysql_secure_installation: false
+ansible-playbook release.yml --extra-vars "mysql_secure_installation=true mysql_root_password=your_very_secret_password"
 ```
 
 ## Dependencies

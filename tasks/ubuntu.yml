@@ -1,9 +1,9 @@
 ---
-- name: Add APT repo file
+- name: Add repo file
   template: src=mariadb_ubuntu.list.j2 dest=/etc/apt/sources.list.d/mariadb.list owner=root group=root mode=0644
   register: mariadb_list
 
-- name: Add APT repo key
+- name: Add repo key
   apt_key: id=1BB943DB url=http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xCBCB082A1BB943DB state=present
   register: mariadb_key
 
@@ -16,7 +16,7 @@
   changed_when: false
 
 - name: Install MariaDB
-  apt: state=present pkg={{ item }}
+  apt: pkg={{ item }} state=present
   with_items:
     - mariadb-server
     - mariadb-client
