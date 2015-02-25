@@ -7,3 +7,6 @@
   with_items:
     - MariaDB-server
     - MariaDB-client
+    - MariaDB-common
+    - MySQL-python
+    
