@@ -7,3 +7,7 @@
   with_items:
     - MariaDB-server
     - MariaDB-client
+
+- name: Install MySQLdb Python package for secure installations.
+  yum: name=MySQL-python state=present
+  when: mysql_secure_installation and mysql_root_password is defined
