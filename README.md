@@ -55,10 +55,10 @@ None
     - { role: pcextreme.mariadb }
 ```
 
+## Credits
+
+- [Attila van der Velde](https://github.com/vdvm)
+
 ## License
 
-MIT / BSD
-
-## Author Information
-
-Created by [Attila van der Velde](https://github.com/vdvm)
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
