@@ -4,20 +4,20 @@
 # FLUSH PRIVILEGES;
 
 - name: Set root Password
-  mysql_user: name=root host={{ item }} password={{ mysql_root_password }} state=present
+  mysql_user: login_password={{ mysql_root_password }} check_implicit_admin=yes name=root host={{ item }} password={{ mysql_root_password }} state=present 
   with_items:
     - localhost
     - 127.0.0.1
     - ::1
+
+- name: Add .my.cnf
+  template: src=my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0600
 
 - name: Reload privilege tables
   command: 'mysql -ne "{{ item }}"'
   with_items:
     - FLUSH PRIVILEGES
   changed_when: False
-
-- name: Add .my.cnf
-  template: src=my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0600
 
 - name: Remove anonymous users
   command: 'mysql -ne "{{ item }}"'
